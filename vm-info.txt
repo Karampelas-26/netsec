@@ -1,0 +1,7 @@
+
+IPv4: 83.212.97.112
+machine name: netsec-web-server-3180072 
+password: xneHUDE4Xm
+direct connection: root@snf-890137.vm.okeanos.grnet.gr
+user-teacher: teacher 
+password-teacher: 1234

@@ -1,0 +1,13 @@
+//prwto erwthma
+sudo useradd teacher    //create user teacher
+id teacher              //to check if user created
+sudo passwb teacher     //to set password for teacher
+usermod -aG wheel teacher //add user to sudo group
+cd etc/ssh/             //to go in directory with ssh
+sudo vi sshd_config     //Uncommented PubkeyAuthentication yes
+sudo mkdir ~/.ssh //i m running the bellow commands from teacher user
+sudo chmod 700 ~/.ssh
+sudo vi ~/.ssh/authorized_keys //copy ssh-rsa keys
+sudo chown root:root ~/.ssh -R
+sudo chmod 600 ~/.ssh/authorized_keys
+sudo systemctl restart sshd.service
