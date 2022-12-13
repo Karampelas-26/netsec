@@ -11,3 +11,22 @@ sudo vi ~/.ssh/authorized_keys //copy ssh-rsa keys
 sudo chown root:root ~/.ssh -R
 sudo chmod 600 ~/.ssh/authorized_keys
 sudo systemctl restart sshd.service
+
+//deytero erwthma
+sudo chmod 755 root //from root user
+sudo chmod 755 home //from root user
+
+//trito erwthma
+sudo yum install httpd
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo firewall-cmd --permanent --add-service=http
+sudo firewall-cmd --permanent --add-service=https
+sudo firewall-cmd --reload
+
+//tetarto erwtima
+
+
+
+
+sudo yum install firewalld
