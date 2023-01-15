@@ -1,0 +1,3 @@
+--How To install SSL Certificate on Apache for CentOS 7: https://hbayraktar.medium.com/how-to-install-ssl-certificate-on-apache-for-centos-7-38c25b84d8b1
+--Guidelines for Generating Certificate Chain and Private Key using OpenSSL: https://docs.oracle.com/en/database/other-databases/nosql-database/19.3/security/ca-using-openssl.html
+--create ca: https://www.centlinux.com/2019/01/configure-certificate-authority-ca-centos-7.html

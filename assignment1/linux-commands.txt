@@ -1,0 +1,5 @@
+pwd: show the current dir
+whoami: show who am i as user
+clear: clear the terminal
+cd ~: go to root dir
+sudo systemctl restart sshd.service //to restart the ssh service

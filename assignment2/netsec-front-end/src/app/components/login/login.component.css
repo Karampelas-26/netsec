@@ -1,0 +1,8 @@
+.height-container {
+    height: 50vh;
+}
+
+.inner-container {
+    min-width: 100px;
+    max-width: 600px;
+}

@@ -1,0 +1,38 @@
+sudo useradd teacher    
+id teacher              
+sudo passwb teacher     
+usermod -aG wheel teacher 
+cd etc/ssh/             
+sudo vi sshd_config     
+sudo mkdir ~/.ssh 
+sudo chmod 700 ~/.ssh
+sudo vi ~/.ssh/authorized_keys //copy ssh-rsa keys
+sudo chown root:root ~/.ssh -R
+sudo chmod 600 ~/.ssh/authorized_keys
+sudo systemctl restart sshd.service
+sudo chmod 755 root 
+sudo chmod 755 home 
+sudo yum install httpd
+sudo yum install firewalld
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo firewall-cmd --zone=public --permanent --add-service=http
+sudo firewall-cmd --zone=public --permanent --add-service=https  
+sudo firewall-cmd --reload
+firewall-cmd --permanent --add-rich-rule=' rule family="ipv4" source NOT address="195.251.255.75" service name="ssh" reject'
+firewall-cmd --reload
+firewall-cmd --list-all
+yum install -y openssl
+cd /etc/pki/CA/private
+openssl genrsa -aes128 -out myCA.key 2048
+openssl req -new -x509 -days 365 -key /etc/pki/CA/private/myCA.key -out /etc/pki/CA/certs/myCA.crt
+yum install -y mod_ssl
+openssl genrsa -out /etc/pki/tls/private/web-server.key 1024
+openssl req -new -key /etc/pki/tls/private/web-server.key -out /etc/pki/tls/web-server.csr
+cd /etc/pki/tls 
+openssl x509 -req -in web-server.csr -CA /etc/pki/CA/certs/myCA.crt -CAkey /etc/pki/CA/private/myCA.key -CAcreateserial -out web-server.crt -days 365
+cd /etc/pki/tls
+mv web-server.crt certs
+vi /etc/httpd/conf.d/ssl.conf 
+systemctl restart httpd.service
+vi /etc/httpd/conf/httpd.conf

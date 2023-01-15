@@ -1,0 +1,25 @@
+<div class="container d-flex flex-column height-container align-items-center justify-content-center fs-5">
+    <div class="container justify-content-start inner-container">
+        <form class="needs-validation" novalidate>
+            <h4 class="mb-3 fs-1">Please log in</h4>
+            <div class="alert alert-danger" role="alert" *ngIf="isVisible == 'credentials'">
+                Wrong credentials, please check your username/password!
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="isVisible == 'locked'">
+                Account is locked due to many failed log in attempts!
+            </div>
+            <div class="alert alert-warning" role="alert" *ngIf="isVisible == 'expired'">
+                Your password has been expired, please change your password!
+            </div>              
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control fs-5" id="floatingInput" placeholder="Username" [(ngModel)]="username" name="username">
+                <label for="floatingInput">Username</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="password" name="password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <button type="button" class="btn btn-primary w-100 fs-2" (click)="onLogin()">Log in</button>
+        </form>
+    </div>
+</div>
