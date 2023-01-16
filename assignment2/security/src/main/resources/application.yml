@@ -20,11 +20,11 @@ server:
     include-message: always
     include-binding-errors: always
     include-exception: false
-  port: 8443
   ssl:
-    key-store:
-      classpath: keystore.p12
-    key-store-password: netsec
+    key-store: C:\Users\georg\Desktop\netsec\assignment2\security\springboot.p12
+    key-store-password: password
     key-store-type: pkcs12
-    key-alias: security
-    key-password: netsec
+    key-alias: springboot
+    key-password: password
+  port: 443
+  

@@ -27,6 +27,7 @@ public class SecurityConfig {
         http
                 .csrf()
                 .disable()
+                .requiresChannel(channel -> channel.anyRequest().requiresSecure())
                 .authorizeHttpRequests()
                 .requestMatchers( "/auth/**")
 //                .requestMatchers("/auth/**","/", "index", "/css/*", "/js/*")
