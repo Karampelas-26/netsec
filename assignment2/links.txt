@@ -1,0 +1,4 @@
+Links:
+    Spring security users with db and attempts:
+        https://www.tutorialspoint.com/spring_security/spring_security_form_login_with_database.htm
+    

@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(46, 47, 48);
+    font-family: 'Roboto Mono', monospace;
+}
+
+.wrapper{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 100vw;
+    height: 50vh;
+}
+
+.username-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 25vw;
+    background-color: rgb(255, 255, 255);
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+#label-username {
+    margin-bottom: 1rem;
+    color: rgb(46, 47, 48);
+}
+
+#input-username {
+    color: rgb(46, 47, 48);
+    margin-bottom: 1rem;
+    border: 1px solid rgb(46, 47, 48);
+    border-radius: 4px;
+}
+
+#submit-username {
+    background-color: rgb(46, 47, 48);
+    color:rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+#submit-username:hover {
+    background-color: rgb(97, 98, 98);
+}

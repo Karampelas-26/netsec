@@ -1,0 +1,61 @@
+//prwto erwthma
+sudo useradd teacher    //create user teacher
+id teacher              //to check if user created
+sudo passwb teacher     //to set password for teacher
+usermod -aG wheel teacher //add user to sudo group
+cd etc/ssh/             //to go in directory with ssh
+sudo vi sshd_config     //Uncommented PubkeyAuthentication yes
+sudo mkdir ~/.ssh //i m running the bellow commands from teacher user
+sudo chmod 700 ~/.ssh
+sudo vi ~/.ssh/authorized_keys //copy ssh-rsa keys
+sudo chown root:root ~/.ssh -R
+sudo chmod 600 ~/.ssh/authorized_keys
+sudo systemctl restart sshd.service
+
+//deytero erwthma
+sudo chmod 755 root //from root user
+sudo chmod 755 home //from root user
+
+//trito erwthma
+sudo yum install httpd
+sudo yum install firewalld
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo firewall-cmd --zone=public --permanent --add-service=http
+sudo firewall-cmd --zone=public --permanent --add-service=https  
+sudo firewall-cmd --reload
+
+//tetarto erwtima
+firewall-cmd --permanent --add-rich-rule=' rule family="ipv4" source NOT address="195.251.255.75" service name="ssh" reject'
+firewall-cmd --reload
+firewall-cmd --list-all
+
+//pempto erwthma
+//ca
+yum install -y openssl
+cd /etc/pki/CA/private
+openssl genrsa -aes128 -out myCA.key 2048
+openssl req -new -x509 -days 365 -key /etc/pki/CA/private/myCA.key -out /etc/pki/CA/certs/myCA.crt
+//csr
+yum install -y mod_ssl
+openssl genrsa -out /etc/pki/tls/private/web-server.key 1024
+openssl req -new -key /etc/pki/tls/private/web-server.key -out /etc/pki/tls/web-server.csr
+cd /etc/pki/tls 
+//digitaly sign CSR 
+openssl x509 -req -in web-server.csr -CA /etc/pki/CA/certs/myCA.crt -CAkey /etc/pki/CA/private/myCA.key -CAcreateserial -out web-server.crt -days 365
+
+//ekto erwthma
+cd /etc/pki/tls
+mv web-server.crt certs
+vi /etc/httpd/conf.d/ssl.conf 
+//with vim change this two paths
+//SSLCertificateFile /etc/pki/tls/certs/web-server.crt
+//SSLCertificateKeyFile /etc/pki/tls/private/web-server.key
+systemctl restart httpd.service
+vi /etc/httpd/conf/httpd.conf
+//add these
+//<VirtualHost *:80>
+//        ServerName www.snf-890137.gr
+//        Redirect "/" "https://83.212.97.112"
+//</VirtualHost>
+
