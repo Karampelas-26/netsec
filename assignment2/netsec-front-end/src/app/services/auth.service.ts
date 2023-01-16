@@ -7,8 +7,8 @@ import { LoginCredentials } from '../LoginCredentials';
 })
 export class AuthService {
 
-  private url = 'http://83.212.97.112:8080/auth/';
-  // private url = 'http://localhost:8080/auth/';
+  // private url = 'http://83.212.97.112:8080/auth/';
+  private url = 'http://localhost:8080/auth/';
 
  
   
@@ -30,6 +30,6 @@ export class AuthService {
     let username = localStorage.getItem("username");
     let headers = this.httpOptions;
     headers.headers.append("Authorization", 'Bearer ' + token);
-    return this.http.get(`${this.url}logging/${username}`);
+    return this.http.get(`${this.url}logging/${username}`, headers);
   }
 }
