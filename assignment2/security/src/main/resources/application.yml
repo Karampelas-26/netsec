@@ -1,4 +1,7 @@
 spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
   main:
     allow-bean-definition-overriding: true
   datasource:
@@ -21,10 +24,12 @@ server:
     include-binding-errors: always
     include-exception: false
   ssl:
-    key-store: C:\Users\georg\Desktop\netsec\assignment2\security\springboot.p12
+    key-store: classpath:KeyStore.p12
     key-store-password: password
     key-store-type: pkcs12
-    key-alias: springboot
+    key-alias: mydomain
     key-password: password
-  port: 443
-  
+    enabled: true
+  port: 8443
+security:
+  require-ssl: true
