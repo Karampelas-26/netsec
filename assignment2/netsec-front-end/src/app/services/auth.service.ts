@@ -7,8 +7,8 @@ import { LoginCredentials } from '../LoginCredentials';
 })
 export class AuthService {
 
-  private url = 'https://83.212.97.112:8443/auth/';
-  // private url = 'https://localhost:8443/auth/';
+  // private url = 'https://83.212.97.112:8443/auth/';
+  private url = 'https://localhost:8443/auth/';
 
  
   

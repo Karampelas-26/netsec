@@ -54,4 +54,8 @@ public class AuthenticationService {
                 .loggingList(logging)
                 .build();
     }
+
+    public DummyResponse getDummyText() {
+        return DummyResponse.builder().response("This message is from secured end-point with jwt!").build();
+    }
 }

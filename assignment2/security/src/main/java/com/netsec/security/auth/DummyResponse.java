@@ -1,4 +1,4 @@
-package com.networksecurity.netsec.auth;
+package com.netsec.security.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,6 +12,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationResponse {
-    private String token;
+public class DummyResponse {
+    String response;
 }

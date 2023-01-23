@@ -45,4 +45,9 @@ public class AuthenticationController {
     public ResponseEntity<LoggingResponse> getLogging(@PathVariable("username") String name){
         return ResponseEntity.ok(authenticationService.getLoggigns(name));
     }
+
+    @GetMapping("/secure-dummy-end-point")
+    public ResponseEntity<DummyResponse> getDummyEndPoint(){
+        return ResponseEntity.ok(authenticationService.getDummyText());
+    }
 }
